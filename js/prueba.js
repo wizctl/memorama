@@ -10,7 +10,7 @@ let aciertos = 0
 
 
 
-let timer =60;
+let timer =2;
 let timerInicial =60
 let tiempo = null;
 let temporizador = false;
@@ -60,8 +60,8 @@ function bloquearTarjetas(){
     }
     swalButtons.fire({
         width: '40%',
-        imageUrl:'../img/GIF/incorrecto_1.gif',
-        imageHeight: 500,
+        imageUrl:'img/GIF/incorrecto_1.gif',
+        imageHeight: 300,
         background:'linear-gradient(45deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6))',
         html:
         `<h3 class="header-text-alert"><span>!</span><span>T</span><span>i</span><span>e</span><span>m</span><span>p</span><span>o</span><span> </span><span>a</span><span>g</span><span>o</span><span>t</span><span>a</span><span>d</span><span>o</span><span>!</h3>`,
@@ -117,8 +117,8 @@ const destapar = (id)=>{
                 tiempoEtiqueta.innerHTML = `${timer}`;
                 swalButtons.fire({
                     width: '40%',
-                    imageUrl:'../img/GIF/Cultix-juntos.gif',
-                    imageHeight: 500,
+                    imageUrl:'img/GIF/Cultix-juntos.gif',
+                    imageHeight: 300,
                     background:'linear-gradient(45deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6))',
                     html:
                     '<h3 class="header-text-alert"><span>!</span><span>E</span><span>s</span><span>p</span><span>e</span><span>c</span><span>t</span><span>a</span><span>c</span><span>u</span><span>l</span><span>a</span><span>r</span><span>!</span></h3>',
@@ -147,9 +147,9 @@ const destapar = (id)=>{
             contadorTarjetas = 0
         } else {
             setTimeout(()=>{
-             PrimerTarjeta.innerHTML= `<img class="tapa" src="/img/tapa2.png" alt="Tapa">`
+             PrimerTarjeta.innerHTML= `<img class="tapa" src="img/tapa2.png" alt="Tapa">`
              PrimerTarjeta.disabled=false;
-             SegundaTarjeta.innerHTML= `<img class="tapa" src="/img/tapa2.png" alt="Tapa">`
+             SegundaTarjeta.innerHTML= `<img class="tapa" src="img/tapa2.png" alt="Tapa">`
              SegundaTarjeta.disabled=false;
              contadorTarjetas = 0
             },1000)

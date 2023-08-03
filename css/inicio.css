@@ -121,9 +121,9 @@ h2 span:nth-child(14){ animation-delay:.65s; }
     cursor: pointer;
 }
 .img-btn a img{
-    width: 20rem;
+    width: 12rem;
     transition: all 1s ease;
-    user-drag: none; /* Evitar arrastre de la imagen */
+    /* user-drag: none; Evitar arrastre de la imagen */
     user-select: none; /* Evitar selección de contenido */
     -moz-user-select: none; /* Para Firefox */
     -webkit-user-drag: none; /* Para navegadores basados en WebKit */

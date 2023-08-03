@@ -52,9 +52,9 @@ body {
     width: 99%;
     height: 26vh;
     background-color: #f7e7e7;
-    border-radius: 5rem;
+    border-radius: 2rem;
     overflow: hidden;
-    border: 10px solid #6b036b ;
+    border: 0.3rem solid #6b036b ;
     margin-bottom: 5px;
 }
 .tapa{
