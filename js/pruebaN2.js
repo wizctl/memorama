@@ -10,7 +10,7 @@ let aciertos = 0
 
 
 
-let timer =2
+let timer =60
 let timerInicial =60
 let tiempo = null;
 let temporizador = false;
