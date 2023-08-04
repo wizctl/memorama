@@ -136,6 +136,7 @@ body {
   background-color: #6b036b;
   color: #ffffff;
   font:bold 1.5vw/1.6 'Signika', sans-serif;
+  cursor: pointer;
 }
 /* Fin Popup y boton alerta */
 
