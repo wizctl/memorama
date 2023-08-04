@@ -64,6 +64,7 @@ function bloquearTarjetas(){
         imageUrl:'img/GIF/incorrecto_1.gif',
         imageHeight: 300,
         background:'linear-gradient(45deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6))',
+        backdrop:false,
         html:
         `<h3 class="header-text-alert"><span>!</span><span>T</span><span>i</span><span>e</span><span>m</span><span>p</span><span>o</span><span> </span><span>a</span><span>g</span><span>o</span><span>t</span><span>a</span><span>d</span><span>o</span><span>!</h3>`,
         confirmButtonText: 'Puntaje final',
@@ -83,6 +84,7 @@ function bloquearTarjetas(){
                 imageUrl:'img/GIF/holi.gif',
                 imageHeight: 200,
                 background:'linear-gradient(45deg, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75))',
+                backdrop:false,
                 html:
                 `<h3 class="header-text-alert" ><span>P</span><span>u</span><span>n</span><span>t</span><span>a</span><span>j</span><span>e</span><span>:</span><span> </span><span>${puntajeFinal}</span></h3>
                 <h3 class="header-text-alert" ><span>T</span><span>i</span><span>e</span><span>m</span><span>p</span><span>o</span><span>:</span><span> </span><span>${tiempoFinal}</span><span> </span><span>s</span></h3>
@@ -150,6 +152,7 @@ const destapar = (id)=>{
                     imageUrl:'img/GIF/presentador-2.gif',
                     imageHeight: 300,
                     background:'linear-gradient(45deg, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75))',
+                    backdrop:false,
                     html:
                     '<h3 class="header-text-alert" ><span>F</span><span>e</span><span>l</span><span>i</span><span>c</span><span>i</span><span>d</span><span>a</span><span>d</span><span>e</span><span>s</span><span>!</span></h3>',
                     confirmButtonText: 'Puntaje Final',
@@ -169,6 +172,7 @@ const destapar = (id)=>{
                             imageUrl:'img/GIF/holi.gif',
                             imageHeight: 200,
                             background:'linear-gradient(45deg, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75))',
+                            backdrop:false,
                             html:
                             `<h3 class="header-text-alert" ><span>P</span><span>u</span><span>n</span><span>t</span><span>a</span><span>j</span><span>e</span><span>:</span><span> </span><span>${puntajeFinal}</span></h3>
                             <h3 class="header-text-alert" ><span>T</span><span>i</span><span>e</span><span>m</span><span>p</span><span>o</span><span>:</span><span> </span><span>${tiempoFinal}</span><span> </span><span>s</span></h3>

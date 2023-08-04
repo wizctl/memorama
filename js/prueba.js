@@ -63,6 +63,7 @@ function bloquearTarjetas(){
         imageUrl:'img/GIF/incorrecto_1.gif',
         imageHeight: 300,
         background:'linear-gradient(45deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6))',
+        backdrop:false,
         html:
         `<h3 class="header-text-alert"><span>!</span><span>T</span><span>i</span><span>e</span><span>m</span><span>p</span><span>o</span><span> </span><span>a</span><span>g</span><span>o</span><span>t</span><span>a</span><span>d</span><span>o</span><span>!</h3>`,
         confirmButtonText: 'Continuar',
@@ -121,6 +122,7 @@ const destapar = (id)=>{
                     imageUrl:'img/GIF/Cultix-juntos.gif',
                     imageHeight: 300,
                     background:'linear-gradient(45deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6))',
+                    backdrop:false,
                     html:
                     '<h3 class="header-text-alert"><span>!</span><span>E</span><span>s</span><span>p</span><span>e</span><span>c</span><span>t</span><span>a</span><span>c</span><span>u</span><span>l</span><span>a</span><span>r</span><span>!</span></h3>',
                     confirmButtonText: 'Siguiente nivel',
