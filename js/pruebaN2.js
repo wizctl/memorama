@@ -10,8 +10,8 @@ let aciertos = 0
 
 
 
-let timer =60
-let timerInicial =60
+let timer =120
+let timerInicial =120
 let tiempo = null;
 let temporizador = false;
 
@@ -26,6 +26,16 @@ tarjetas.sort(() => Math.random()-0.5);
 
 document.getElementById('container-game').classList.add('animate__animated', 'animate__zoomInUp');
 
+function formatearTiempo(tiempo) {
+    let minutos = Math.floor(tiempo / 60);
+    let segundos = tiempo % 60;
+  
+    minutos = minutos < 10 ? '0' + minutos : minutos;
+    segundos = segundos < 10 ? '0' + segundos : segundos;
+  
+    return minutos + ':' + segundos;
+  }
+
 const swalButtons = Swal.mixin({
     customClass: {
       popup: 'popup',
@@ -37,7 +47,7 @@ const swalButtons = Swal.mixin({
 function contarTiempo(){
     tiempo = setInterval(()=>{
         timer--;
-        tiempoEtiqueta.innerHTML=timer;
+        tiempoEtiqueta.innerHTML=formatearTiempo(timer);
         if (timer === 0) {
             clearInterval(tiempo);
             bloquearTarjetas()
@@ -56,7 +66,6 @@ function bloquearTarjetas(){
      tarjetaBloqueada.style.backgroundColor="#ffffff"
      document.getElementById('container-game').classList.add('animate__animated', 'animate__fadeIn');
      tarjetaBloqueada.innerHTML=`<img class="tapa animate__animated animate__fadeIn" src="img/Tarjetas/${tarjetas[i]}.png" alt="Tapa">`;
-     console.log(`<img class="tapa animate__animated animate__fadeIn" src="img/Tarjetas/${tarjetas[i]}.png" alt="Tapa">`)
         tarjetaBloqueada.disabled=true
     }
     swalButtons.fire({
@@ -73,9 +82,10 @@ function bloquearTarjetas(){
         },
     }).then((result) => {
         // document.getElementById('container-game').classList.add('animate__animated', 'animate__fadeOut');
+        
         if (result.isConfirmed) {
             const movidasFinales = Number(localStorage.getItem("movidas")) + (movidas);
-            const tiempoFinal = Number(localStorage.getItem("tiempo")) + (timerInicial-timer)
+            const tiempoFinal = Number(localStorage.getItem("tiempo")) + (timer)
             const puntajeFinal = Number(localStorage.getItem("puntaje")) + (aciertos*5);
           
                 
@@ -87,7 +97,7 @@ function bloquearTarjetas(){
                 backdrop:false,
                 html:
                 `<h3 class="header-text-alert" ><span>P</span><span>u</span><span>n</span><span>t</span><span>a</span><span>j</span><span>e</span><span>:</span><span> </span><span>${puntajeFinal}</span></h3>
-                <h3 class="header-text-alert" ><span>T</span><span>i</span><span>e</span><span>m</span><span>p</span><span>o</span><span>:</span><span> </span><span>${tiempoFinal}</span><span> </span><span>s</span></h3>
+                <h3 class="header-text-alert" ><span>T</span><span>i</span><span>e</span><span>m</span><span>p</span><span>o</span><span>:</span><span> </span><span>${formatearTiempo(tiempoFinal)}</span></h3>
                 <h3 class="header-text-alert" ><span>M</span><span>o</span><span>v</span><span>i</span><span>d</span><span>a</span><span>s</span><span>:</span><span> </span><span>${movidasFinales}</span></h3>`,
                 
                 confirmButtonText: 'Jugar otra vez',
@@ -145,7 +155,7 @@ const destapar = (id)=>{
 
                 document.body.classList.remove('animate__animated', 'animate__fadeOut');
                 clearInterval(tiempo)
-                tiempoEtiqueta.innerHTML = `${timer}`;
+                tiempoEtiqueta.innerHTML = `${formatearTiempo(timer)}`;
 
                 swalButtons.fire({
                     width: '40%',
@@ -161,11 +171,11 @@ const destapar = (id)=>{
                     },
                 }).then((result) => {
                     // document.getElementById('container-game').classList.add('animate__animated', 'animate__fadeOut');
+                    console.log(Number(localStorage.getItem("tiempo"))+" : " + (timerInicial-timer))
                     if (result.isConfirmed) {
                         const movidasFinales = Number(localStorage.getItem("movidas")) + (movidas);
                         const tiempoFinal = Number(localStorage.getItem("tiempo")) + (timerInicial-timer)
                         const puntajeFinal = Number(localStorage.getItem("puntaje")) + (aciertos*5);
-                      
                             
                         swalButtons.fire({
                             width: '40%',
@@ -175,7 +185,7 @@ const destapar = (id)=>{
                             backdrop:false,
                             html:
                             `<h3 class="header-text-alert" ><span>P</span><span>u</span><span>n</span><span>t</span><span>a</span><span>j</span><span>e</span><span>:</span><span> </span><span>${puntajeFinal}</span></h3>
-                            <h3 class="header-text-alert" ><span>T</span><span>i</span><span>e</span><span>m</span><span>p</span><span>o</span><span>:</span><span> </span><span>${tiempoFinal}</span><span> </span><span>s</span></h3>
+                            <h3 class="header-text-alert" ><span>T</span><span>i</span><span>e</span><span>m</span><span>p</span><span>o</span><span>:</span><span> </span><span>${formatearTiempo(tiempoFinal)}</span></h3>
                             <h3 class="header-text-alert" ><span>M</span><span>o</span><span>v</span><span>i</span><span>d</span><span>a</span><span>s</span><span>:</span><span> </span><span>${movidasFinales}</span></h3>`,
                             
                             confirmButtonText: 'Jugar otra vez',
@@ -207,7 +217,7 @@ const destapar = (id)=>{
              SegundaTarjeta.innerHTML= `<img class="tapa" src="img/tapa2.png" alt="Tapa">`
              SegundaTarjeta.disabled=false;
              contadorTarjetas = 0
-            },1000)
+            },2000)
           }
     }
 

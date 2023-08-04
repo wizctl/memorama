@@ -10,8 +10,8 @@ let aciertos = 0
 
 
 
-let timer =60;
-let timerInicial =60
+let timer =120;
+let timerInicial =120;
 let tiempo = null;
 let temporizador = false;
 
@@ -25,6 +25,15 @@ let tarjetas = [1,2,4,5,7,8,10,11,13,14,16,17];
 tarjetas.sort(() => Math.random()-0.5);
 document.getElementById('container-game').classList.add('animate__animated', 'animate__zoomInUp');
 
+function formatearTiempo(tiempo) {
+    let minutos = Math.floor(tiempo / 60);
+    let segundos = tiempo % 60;
+  
+    minutos = minutos < 10 ? '0' + minutos : minutos;
+    segundos = segundos < 10 ? '0' + segundos : segundos;
+  
+    return minutos + ':' + segundos;
+  }
 
 const swalButtons = Swal.mixin({
     customClass: {
@@ -37,7 +46,7 @@ const swalButtons = Swal.mixin({
 function contarTiempo(){
     tiempo = setInterval(()=>{
         timer--;
-        tiempoEtiqueta.innerHTML=timer;
+        tiempoEtiqueta.innerHTML=formatearTiempo(timer);
         if (timer === 0) {
             clearInterval(tiempo);
             bloquearTarjetas()
@@ -116,7 +125,7 @@ const destapar = (id)=>{
 
             if(aciertos === 6){
                 clearInterval(tiempo)
-                tiempoEtiqueta.innerHTML = `${timer}`;
+                tiempoEtiqueta.innerHTML = `${formatearTiempo(timer)}`;
                 swalButtons.fire({
                     width: '40%',
                     imageUrl:'img/GIF/Cultix-juntos.gif',
@@ -155,7 +164,7 @@ const destapar = (id)=>{
              SegundaTarjeta.innerHTML= `<img class="tapa" src="img/tapa2.png" alt="Tapa">`
              SegundaTarjeta.disabled=false;
              contadorTarjetas = 0
-            },1000)
+            },2000)
           }
     }
 
