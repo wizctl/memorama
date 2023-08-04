@@ -70,6 +70,7 @@ function bloquearTarjetas(){
             popup: 'animate__animated animate__fadeIn'
         },
     }).then((result) => {
+        document.getElementById('container-game').classList.add('animate__animated', 'animate__fadeOut');
         if (result.isConfirmed) {
             const puntajeN1=aciertos*5;
             const tiempoN1 =timer;
